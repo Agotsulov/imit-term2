@@ -1,3 +1,3 @@
 public interface IInvertableMatrix extends IMatrix {
-    IInvertableMatrix getInverse();
+    IInvertableMatrix getInverse() throws OutOfRangeException;
 }

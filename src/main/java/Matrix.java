@@ -17,6 +17,13 @@ public class Matrix implements IMatrix{
         this.n = n;
     }
 
+    public Matrix(Matrix other){
+        this.n = other.getN();
+        data = other.getData().clone();
+        det = other.det;
+        isDet = false;
+    }
+
 
     public double get(int i, int j) throws OutOfRangeException {
         if (((j + i * n) > data.length) && ((j + i * n) > 0)) throw new OutOfRangeException();

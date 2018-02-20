@@ -49,9 +49,9 @@ public class DemoMatrix extends InvertableMatrix{
     }
 
     public static void main(String[] args) throws IOException, OutOfRangeException, ClassNotFoundException {
-        Matrix matrix = new Matrix(5);
-        InvertableMatrix invertableMatrix = new InvertableMatrix(5);
-        DemoMatrix demoMatrix= new DemoMatrix(5);
+        Matrix matrix;
+        InvertableMatrix invertableMatrix;
+        DemoMatrix demoMatrix;
 
 
         Scanner sc = new Scanner(new File("main.txt"));
@@ -64,7 +64,7 @@ public class DemoMatrix extends InvertableMatrix{
         for(int i = 0;i < size;i++){
             for(int j = 0;j < size;j++){
                 double d = sc.nextDouble();
-                System.out.println(d + " ");
+                //System.out.println(d + " ");
                 matrix.set(i,j,d);
                 invertableMatrix.set(i,j,d);
                 demoMatrix.set(i,j,d);
@@ -104,6 +104,20 @@ public class DemoMatrix extends InvertableMatrix{
         }
 
         System.out.println();
+
+        System.out.println("Inverse");
+
+        InvertableMatrix im = (InvertableMatrix) invertableMatrix.getInverse();
+        for(int i = 0;i < size;i++){
+            for(int j = 0;j < size;j++){
+                System.out.print(im.get(i,j) + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+
 
         FileOutputStream fos = new FileOutputStream("serTest.out");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
